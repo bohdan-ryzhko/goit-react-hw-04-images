@@ -61,7 +61,7 @@ export const ImageGallery = ({ searchQuery }) => {
 				setMistake(error.config.url)
 			})
 		}
-	}, [currentPage, searchQuery])
+	}, [currentPage, searchQuery, searchValue])
 
 	const onIncrementPage = () => {
 		setCurrentPage(prevPage => prevPage + 1);
