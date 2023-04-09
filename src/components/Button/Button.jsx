@@ -1,5 +1,5 @@
 import { exact, number } from "prop-types";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const Button = ({ incrementPage }) => {
 
@@ -7,18 +7,18 @@ export const Button = ({ incrementPage }) => {
 	// 	page: 2,
 	// }
 
-	const [page, setPage] = useState(2);
+	// const [page, setPage] = useState(2);
 
-	const onIncrementPage = () => {
-		setPage(prevPage => prevPage + 1);
-		incrementPage(page);
-		// this.setState(({ page }) => ({ page: page + 1 }));
-		// this.props.incrementPage(this.state);
-	}
+	// const onIncrementPage = () => {
+	// 	setPage(prevPage => prevPage + 1);
+	// 	incrementPage(page);
+	// this.setState(({ page }) => ({ page: page + 1 }));
+	// this.props.incrementPage(this.state);
+	// }
 
 	return (
 		<button
-			onClick={onIncrementPage}
+			onClick={incrementPage}
 			className="Button"
 			type="button"
 		>
