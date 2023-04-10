@@ -1,0 +1,1 @@
+export const getNormalizeErrorMsg = str => str.split(/\?q=/).join("");

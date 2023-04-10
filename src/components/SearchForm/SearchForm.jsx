@@ -8,7 +8,7 @@ import { validationSchema } from "services/validationSchema";
 export const SearchForm = ({ onSubmit }) => {
 
 	const submitForm = (values, { resetForm }) => {
-		onSubmit(values);
+		onSubmit({ ...values, currentPage: 1 });
 		resetForm();
 	}
 

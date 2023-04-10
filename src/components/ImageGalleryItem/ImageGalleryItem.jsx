@@ -1,11 +1,9 @@
 import { string } from "prop-types";
 import { Modal } from "components/Modal/Modal";
-import { useSearch } from "components/SearchContext/SearchContext";
 import { useState } from "react";
 
 export const ImageGalleryItem = ({ largeImageURL, user, webformatURL }) => {
-	const { onModal } = useSearch();
-	const [openModal, setOpenModal] = useState(onModal);
+	const [openModal, setOpenModal] = useState(false);
 
 	const handleModal = ({ target }) => {
 		if (openModal) {
