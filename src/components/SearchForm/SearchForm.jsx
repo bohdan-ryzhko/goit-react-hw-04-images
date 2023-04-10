@@ -1,13 +1,9 @@
 import { func } from "prop-types";
 import { Field, Form, Formik } from 'formik';
-import { object, string } from 'yup';
 import { AiOutlineSearch } from "react-icons/ai";
 
-const initialValues = { searchQuery: "" };
-
-const validationSchema = object().shape({
-	searchQuery: string().required()
-})
+import { initialValues } from "services/initialValues";
+import { validationSchema } from "services/validationSchema";
 
 export const SearchForm = ({ onSubmit }) => {
 
