@@ -4,17 +4,15 @@ import { fetchResponse } from "services/fetchResponse";
 import { Button } from "components/Button/Button";
 import { Loader } from "components/Loader/Loader";
 import { ErrorMessage } from "components/ErrorMessage/ErrorMessage";
-import { useSearch } from "components/SearchContext/SearchContext";
 import { useEffect, useState } from "react";
 
 export const ImageGallery = ({ searchQuery }) => {
-	const { searchList, page, isLoad, error } = useSearch();
 
 	const [searchValue, setSearchValue] = useState(searchQuery);
-	const [listSearch, setListSearch] = useState(searchList);
-	const [currentPage, setCurrentPage] = useState(page);
-	const [isLoading, setIsLoading] = useState(isLoad);
-	let [mistake, setMistake] = useState(error);
+	const [listSearch, setListSearch] = useState([]);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [isLoading, setIsLoading] = useState(false);
+	let [mistake, setMistake] = useState(null);
 
 	useEffect(() => {
 		const controller = new AbortController();
