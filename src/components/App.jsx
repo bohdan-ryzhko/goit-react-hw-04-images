@@ -12,30 +12,14 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = ({ searchQuery, currentPage }) => {
+  const handleSubmit = ({ searchQuery }) => {
     setSearchQuery(searchQuery.trim());
-    setCurrentPage(currentPage);
+    setCurrentPage(1);
+    setListSearch([]);
   }
 
   useEffect(() => {
-    if (searchQuery !== "" && currentPage === 1) {
-      setIsLoading(true);
-      fetchResponse(searchQuery, 1)
-        .then(data => {
-          if (!data.status) {
-            Promise.reject(data);
-            return;
-          }
-          setListSearch(data.data.hits);
-          setIsLoading(false);
-        }).catch(({ config }) => {
-          setIsLoading(false);
-          setError(getNormalizeErrorMsg(config.url));
-        });
-      return;
-    }
-
-    if (currentPage > 1) {
+    if (searchQuery) {
       setIsLoading(true);
       fetchResponse(searchQuery, currentPage)
         .then(({ data }) => {
@@ -47,7 +31,6 @@ export const App = () => {
         });
       return;
     }
-
   }, [searchQuery, currentPage]);
 
   const onIncrementPage = () => {
